@@ -9,3 +9,10 @@
 
 #Garbage
 *.asv
+
+#Extraneous
+*.docx
+*.pps
+*.pptx
+*.ppt
+*.pdf
