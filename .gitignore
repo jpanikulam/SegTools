@@ -1,0 +1,11 @@
+#Matlab Saved Workspaces
+*.mat
+
+#Images
+*.png
+*.jpg
+*.tif
+*.fig
+
+#Garbage
+*.asv
