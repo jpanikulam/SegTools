@@ -1,0 +1,9 @@
+Starting electronic dev-notes as of 3/30/2014 for Oqulus
+
+March 30, 2014
+    >Improving Image Post-Processing/Cleanup methods
+        - Solidity, perimeter, area
+        - Perimeter/area works for small objects
+        - Macro-scale region properties (Orientation, M/m axes, etc) are fundamentally inaccessible for real segmentations
+         \- They will only work on 'piece-wise' images, or small objects of similar size.
+           \- See if a 'local' region props for continuous objects can be implemented in Jacob time.

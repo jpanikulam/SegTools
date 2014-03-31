@@ -49,10 +49,31 @@ gy = clean_image(gy);
 offset_angle = pi/2;
 [gx,gy] = pol2cart(TH + offset_angle, R);
 
-mapx = gx.*thinned;
-mapy = gy.*thinned;
 
-map = cat(3,mapx,mapy);
+[skel_pts_listx, skel_pts_listy] = ind2sub(size(bw),find(thinned));
+skel_pts_list = [skel_pts_listx, skel_pts_listy];
+
+
+
+
+figure,imshow(bw)
+hold on
+
+spacing = 2;
+for pt_pos = 1:spacing:length(skel_pts_list);
+
+    pos_x = uint32(skel_pts_list(pt_pos,1));
+    pos_y = uint32(skel_pts_list(pt_pos,2));
+    
+    gradX = gx(pos_x,pos_y);
+    gradY = gy(pos_x,pos_y);
+    
+
+    quiver(pos_y,pos_x,gradX,gradY,3,'linewidth',5,'color','r')
+
+end
+hold off
+
 
 end
 
