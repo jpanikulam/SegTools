@@ -2,9 +2,13 @@
 
 %clean_image serves to remove image noise using a gaussian blur
 
-function cleaned = clean_image(image)
+function cleaned = clean_image(image, amt)
 
-gauss_filt = fspecial('gaussian', [64,64],2); %play with sigma
+if nargin < 2
+    amt = 64;
+end
+
+gauss_filt = fspecial('gaussian', [amt,amt],2); %play with sigma
 
 gauss = imfilter(image,gauss_filt);%,'replicate');
 
