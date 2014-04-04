@@ -1,7 +1,14 @@
 Starting electronic dev-notes as of 3/30/2014 for Oqulus
 
+April 3, 2014
+    > Test
+        - Run test on all of the DRIVE dataset
+    > Improving Post-Processing/Cleanup methods
+        - Implement gap completion
+
+
 March 30, 2014
-    >Improving Image Post-Processing/Cleanup methods
+    > Improving Image Post-Processing/Cleanup methods
         - Solidity, perimeter, area
         - Perimeter/area works for small objects
         - Macro-scale region properties (Orientation, M/m axes, etc) are fundamentally inaccessible for real segmentations
