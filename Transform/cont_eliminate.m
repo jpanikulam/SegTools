@@ -1,5 +1,5 @@
 
-function finimg = ContEliminator(bwImg, minSize, percentile)
+function finimg = cont_eliminate(bwImg, minSize, percentile)
 finimg = false(size(bwImg));
 
 CC = bwconncomp(bwImg, 4);
