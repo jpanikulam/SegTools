@@ -1,6 +1,18 @@
 %% Test Function!
 
 function accuracy_table = test_process(dataset,func)
+%% Run a segmentation function on a dataset and output accuracy results
+% 
+%
+% dataset is a cell array, where dataset{1,n} is the nth color image, and
+% {2,n} is the nth ground truth image.
+% func is a lambda function containing the segmentation function
+% Ex: 
+%   drive_set = generateDriveDataset();
+%   mySegFunc = @(image) pass5seg(image);
+%   accuracy_table = test_process(drive_set, mySegFunc);
+
+
 accuracy_table = [];
     for image_num = 1:length(dataset)
         image = dataset{1,image_num};

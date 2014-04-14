@@ -1,5 +1,18 @@
 
 function finimg = cont_eliminate(bwImg, minSize, percentile)
+%% Removes objects from a bw image below a given size or percentile
+% Takes an image, a minimum size, and a percentile flag
+% The minimum size can be the number of pixels, or - if the percentile flag
+% is set (by using 'percentile' as the argument (I should really fix that)
+% Then it is the minimum percentile size
+%
+% Example: cont_eliminate(bwimg, 1000)
+% Eliminates objects below area of 1000
+% Example 2: cont_eliminate(bwimg, 95, 'percentile') 
+% Eliminates objects below the 95th percentile
+%
+% Percentile defaults to false.
+
 finimg = false(size(bwImg));
 
 CC = bwconncomp(bwImg, 4);
@@ -32,7 +45,7 @@ else
     lgclAccept = CC.PixelIdxList(biggest==max(biggest));
     finimg(lgclAccept{1,:}) = 1;
 end
-    %figure,imshow(finimg)
+% figure,imshow(finimg)
 % title(titleStr);
 
 end

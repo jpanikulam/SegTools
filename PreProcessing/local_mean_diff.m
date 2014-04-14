@@ -1,12 +1,14 @@
 
 
-function difference = local_mean_diff(image, hsize)
+function difference = local_mean_diff(image, hsize, doPlot)
 %% Local Mean Difference
 % Finds the dissimilarity between a pixel and its neighboring pixels
 % To do this, I take the difference between each pixel and the average of
 % all of the pixels in a radius of hsize around it
 
-doPlot = 0;
+if nargin < 3
+    doPlot = 0;
+end
 
 %coeff = ones(hsize);
 %coeff = coeff./numel(coeff);
@@ -22,6 +24,15 @@ avg_filter = fspecial('disk',hsize(1));
 avg_value = imfilter(image,avg_filter);
 
 difference = double(avg_value)-double(image);
+
+
+
+sqrdiff_en = (double(avg_value).^2 - double(image).^2);
+sqrdiff = sign(sqrdiff_en).*(abs(sqrdiff_en).^(1/2));
+
 if doPlot == 1
-    figure,imagesc(double(avg_value)-double(image));
+    figure,imagesc(difference)
+    title('Difference')
+    figure,imagesc(sqrdiff)
+    title('Square Difference')
 end

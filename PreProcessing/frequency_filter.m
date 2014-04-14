@@ -2,6 +2,9 @@
 
 function filtered = frequency_filter(image)
 %% Separating an image features into high and low frequency bands
+% This doesn't quite work as well as I thought it might
+% Try implementing this directly on the fft
+
 close all
 
 hz=fspecial('sobel');

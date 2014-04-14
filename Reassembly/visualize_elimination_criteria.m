@@ -2,9 +2,18 @@
 %% Note to self: Improve the friggin naming criteria
 
 function result = visualize_elimination_criteria(bw,property, maxval)
+%% Visualize criteria for eliminating objects
+% This function takes an image and generates a scaled blue-red image that
+% shows each bw conncomp region (each object) colored according to the
+% magnitude of some property
+% Ex: visualize_elimination_criteria(bwimg, 'area')
+%
+% Permissible properties are: 
+%   'Area','Perimeter','PixelIdxList','Eccentricity','Solidity'
+
 
 if nargin < 2
-    property = 'all'
+    property = 'all';
 end
 if nargin < 3
     maxval = inf;
@@ -14,7 +23,9 @@ connectivity = bwconncomp(bw);
 
 property_cells = regionprops(connectivity,'Area','Perimeter','PixelIdxList','Eccentricity','Solidity');
 
-
+% Skeletal data can't be used unless reconstructive measures are used,
+% because the list indices are not necessarily synced. i.e. the same object
+% in the image may not have the same numerical label
 % 
 % skeleton = bwmorph(bw,'skel',30);
 % skeleton_connectivity = bwconncomp(skeleton);
@@ -53,9 +64,10 @@ for region_num = 1:size(property_cells,1)
             break
         end
     end
-    %result(pxls) = solidity;
     
-
+    
+    %result(pxls) = solidity;
+   
     % Using skeleton data is impossible unless using reconstructive
     % measures to ensure the skeleton connected componenet labels are in
     % sync with the bw connected components.
