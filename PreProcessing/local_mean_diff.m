@@ -25,8 +25,6 @@ avg_value = imfilter(image,avg_filter);
 
 difference = double(avg_value)-double(image);
 
-
-
 sqrdiff_en = (double(avg_value).^2 - double(image).^2);
 sqrdiff = sign(sqrdiff_en).*(abs(sqrdiff_en).^(1/2));
 

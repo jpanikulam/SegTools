@@ -18,7 +18,6 @@ filter_laplace = imfilter(double(image),log,'replicate','conv');
 figure,imagesc((filter_laplace))
 title('Llog');
 
-
 log = fspecial('log', [45,45], 0.01);
 filter_laplace = imfilter(double(image),log,'replicate');
 figure,imagesc((filter_laplace))

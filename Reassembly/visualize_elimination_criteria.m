@@ -11,7 +11,6 @@ function result = visualize_elimination_criteria(bw,property, maxval)
 % Permissible properties are: 
 %   'Area','Perimeter','PixelIdxList','Eccentricity','Solidity'
 
-
 if nargin < 2
     property = 'all';
 end
@@ -30,16 +29,12 @@ property_cells = regionprops(connectivity,'Area','Perimeter','PixelIdxList','Ecc
 % skeleton = bwmorph(bw,'skel',30);
 % skeleton_connectivity = bwconncomp(skeleton);
 % skeleton_property_cells =  regionprops(skeleton_connectivity,'Area','Perimeter','PixelIdxList','Eccentricity','Solidity');
-% 
-
-
 
 result = double(zeros(size(bw)));
 result_skel = double(zeros(size(bw)));
 
 for region_num = 1:size(property_cells,1)
     region = property_cells(region_num);
-    
     
     area = region.Area;
     perimeter = region.Perimeter;
@@ -65,7 +60,6 @@ for region_num = 1:size(property_cells,1)
         end
     end
     
-    
     %result(pxls) = solidity;
    
     % Using skeleton data is impossible unless using reconstructive
@@ -74,7 +68,6 @@ for region_num = 1:size(property_cells,1)
     
     %result(pxls) = region_num;
     %result_skel(skel_pxls) = region_num;
-    
     
 end
 

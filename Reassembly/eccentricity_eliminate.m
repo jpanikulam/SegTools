@@ -16,7 +16,6 @@ else
     min_area = min_area_in;
 end
 
-
 connectivity = bwconncomp(bwimg); 
 property_cells = regionprops(connectivity,'Area','Perimeter','PixelIdxList','Eccentricity','Solidity','BoundingBox');
 
@@ -29,7 +28,6 @@ result = double(zeros(size(bwimg)));
 
 for region_num = 1:size(property_cells,1)
     region = property_cells(region_num);
-    
     
     area = region.Area;
     perimeter = region.Perimeter;
@@ -46,9 +44,6 @@ for region_num = 1:size(property_cells,1)
     if (area < max_area) && (area > min_area)
         result(pxls) = eccentricity;
     end
-
-    
-    
 end
 
 

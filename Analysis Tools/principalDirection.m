@@ -15,7 +15,6 @@ function vecs = principalDirection(bwimg, plot)
 %Additionally: do principalDirection(bwimg, 'plot') if you'd like to
 %display the vectors.
 
-
 if nargin < 1
   error('ERROR: bwimg required')
 end
@@ -33,8 +32,6 @@ observations = zscore([ptsx,ptsy]);
 [coeff, score] = pca(observations);
 varianceTable = var(score); %NTS// Scale by what? Wtf? //
 vecs = bsxfun(@times,coeff,varianceTable); %The vectors are scaled by their component variable's variance in the principle component space
-
-
 
 if(doPlot)
     S = regionprops(bwimg,'centroid');

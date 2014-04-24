@@ -18,8 +18,6 @@ finimg = false(size(bwImg));
 CC = bwconncomp(bwImg, 4);
 [biggest] = cellfun(@numel,CC.PixelIdxList);
 
-
-
 if nargin < 1
   error('ERROR: bwimg and minSize required - say minSize of 0 to take the largest object')
 end
@@ -32,9 +30,7 @@ if nargin > 2
     
 else
     titleStr = ['Continuity elimination below size ', num2str(minSize), ' pixels'];
-    
 end
-
 
 if minSize > 0
     lgclAccept = CC.PixelIdxList(biggest>minSize);
