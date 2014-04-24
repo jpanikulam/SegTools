@@ -12,7 +12,7 @@ function vecs = principalDirection(bwimg, plot)
 %Note: Neither vector indicates an actual length or width - instead they
 %correspond to variance in each direction NTS//Fix that //
 %
-%Additionally: do principalDirection(bwimg, 'plot') if you'd like do
+%Additionally: do principalDirection(bwimg, 'plot') if you'd like to
 %display the vectors.
 
 
@@ -31,7 +31,7 @@ end
 [ptsx,ptsy] = ind2sub(size(bwimg),find(bwimg));
 observations = zscore([ptsx,ptsy]);
 [coeff, score] = pca(observations);
-varianceTable = var(score); %NTS// Wikipedia suggests scale by sqrt of eigenvalue? Which eigenvalue? Wtf? //
+varianceTable = var(score); %NTS// Scale by what? Wtf? //
 vecs = bsxfun(@times,coeff,varianceTable); %The vectors are scaled by their component variable's variance in the principle component space
 
 
